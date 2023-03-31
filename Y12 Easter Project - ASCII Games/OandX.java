@@ -181,16 +181,18 @@ class OandX extends Game {
   }
 
   public void update(){
-    if(grid[0][0]==grid[0][1] && grid[0][0]==grid[0][2] && grid[0][0]==grid[0][3] && grid[0][0]!=0){gameover = true;winner=grid[0][0];}
-    if(grid[1][0]==grid[1][1] && grid[1][0]==grid[1][2] && grid[1][0]==grid[1][3] && grid[1][0]!=0){gameover = true;winner=grid[1][0];}
-    if(grid[2][0]==grid[2][1] && grid[2][0]==grid[2][2] && grid[2][0]==grid[2][3] && grid[2][0]!=0){gameover = true;winner=grid[2][0];}
-    if(grid[3][0]==grid[3][1] && grid[3][0]==grid[3][2] && grid[3][0]==grid[3][3] && grid[3][0]!=0){gameover = true;winner=grid[3][0];}
-    if(grid[0][0]==grid[1][0] && grid[0][0]==grid[2][0] && grid[0][0]==grid[3][0] && grid[0][0]!=0){gameover = true;winner=grid[0][0];}
-    if(grid[0][1]==grid[1][1] && grid[0][1]==grid[2][1] && grid[0][1]==grid[3][1] && grid[0][1]!=0){gameover = true;winner=grid[0][1];}
-    if(grid[0][2]==grid[1][2] && grid[0][2]==grid[2][2] && grid[0][2]==grid[3][2] && grid[0][2]!=0){gameover = true;winner=grid[0][2];}
-    if(grid[0][3]==grid[1][3] && grid[0][3]==grid[2][3] && grid[0][3]==grid[3][3] && grid[0][3]!=0){gameover = true;winner=grid[0][3];}
-    if(grid[0][0]==grid[1][1] && grid[0][0]==grid[2][2] && grid[0][0]==grid[3][3] && grid[0][0]!=0){gameover = true;winner=grid[0][0];}
-    if(grid[0][3]==grid[1][2] && grid[0][3]==grid[2][1] && grid[0][3]==grid[3][0] && grid[0][3]!=0){gameover = true;winner=grid[0][3];}
+    if(grid[0][0]==grid[0][1] && grid[0][0]==grid[0][2] && grid[0][0]==grid[0][3] && grid[0][0]!=0){gameover = true;winner=grid[0][0];} //row 1
+    if(grid[1][0]==grid[1][1] && grid[1][0]==grid[1][2] && grid[1][0]==grid[1][3] && grid[1][0]!=0){gameover = true;winner=grid[1][0];} //row 2
+    if(grid[2][0]==grid[2][1] && grid[2][0]==grid[2][2] && grid[2][0]==grid[2][3] && grid[2][0]!=0){gameover = true;winner=grid[2][0];} //row 3
+    if(grid[3][0]==grid[3][1] && grid[3][0]==grid[3][2] && grid[3][0]==grid[3][3] && grid[3][0]!=0){gameover = true;winner=grid[3][0];} //row 4
+
+    if(grid[0][0]==grid[1][0] && grid[0][0]==grid[2][0] && grid[0][0]==grid[3][0] && grid[0][0]!=0){gameover = true;winner=grid[0][0];} //collum 1
+    if(grid[0][1]==grid[1][1] && grid[0][1]==grid[2][1] && grid[0][1]==grid[3][1] && grid[0][1]!=0){gameover = true;winner=grid[0][1];} //collum 2
+    if(grid[0][2]==grid[1][2] && grid[0][2]==grid[2][2] && grid[0][2]==grid[3][2] && grid[0][2]!=0){gameover = true;winner=grid[0][2];} //collum 3
+    if(grid[0][3]==grid[1][3] && grid[0][3]==grid[2][3] && grid[0][3]==grid[3][3] && grid[0][3]!=0){gameover = true;winner=grid[0][3];} //collum 4
+
+    if(grid[0][0]==grid[1][1] && grid[0][0]==grid[2][2] && grid[0][0]==grid[3][3] && grid[0][0]!=0){gameover = true;winner=grid[0][0];} //diagonal TL-BR
+    if(grid[0][3]==grid[1][2] && grid[0][3]==grid[2][1] && grid[0][3]==grid[3][0] && grid[0][3]!=0){gameover = true;winner=grid[0][3];} //diagonal TR-BL
     if(turn==17){gameover = true;winner=0;}
   }
 
