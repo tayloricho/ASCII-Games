@@ -176,7 +176,7 @@ class OandX extends Game {
         }
         break;
       default:
-        break;
+        break
     }
   }
 
