@@ -28,6 +28,4 @@ class Main {
       games[choice-1].play();
     }
   }
-
-  
 }

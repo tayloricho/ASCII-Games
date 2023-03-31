@@ -19,9 +19,9 @@ class OandX extends Game {
     gameover = false;
     winner = 0;
     scanner = new Scanner(System.in);
-    grid = new int[3][3];
-    for (int i=0;i<3;i++){
-      for (int j=0;j<3;j++){
+    grid = new int[4][4];
+    for (int i=0;i<4;i++){
+      for (int j=0;j<4;j++){
         grid[i][j]=0;
       }
     }
@@ -39,15 +39,18 @@ class OandX extends Game {
     display+= "Turn: "+turn+" Current Player: "+icons[player]+"\r\n";
     }
     display+= "____________________________\r\n";
-    display+= "a  |b  |c  \r\n";
-    display+= " "+icons[grid[0][0]]+" | "+icons[grid[0][1]]+" | "+icons[grid[0][2]]+" \r\n";
-    display+= "___|___|___\r\n";
-    display+= "d  |e  |f  \r\n";
-    display+= " "+icons[grid[1][0]]+" | "+icons[grid[1][1]]+" | "+icons[grid[1][2]]+" \r\n";
-    display+= "___|___|___\r\n";
-    display+= "g  |h  |i  \r\n";
-    display+= " "+icons[grid[2][0]]+" | "+icons[grid[2][1]]+" | "+icons[grid[2][2]]+" \r\n";
-    display+= "   |   |   \r\n";
+    display+= "1  |2  |3  |4  \r\n";
+    display+= " "+icons[grid[0][0]]+" | "+icons[grid[0][1]]+" | "+icons[grid[0][2]]+" | "+icons[grid[0][3]]+" \r\n";
+    display+= "___|___|___|___\r\n";
+    display+= "q  |w  |e  |r  \r\n";
+    display+= " "+icons[grid[1][0]]+" | "+icons[grid[1][1]]+" | "+icons[grid[1][2]]+" | "+icons[grid[1][3]]+" \r\n";
+    display+= "___|___|___|___\r\n";
+    display+= "a  |s  |d  |f  \r\n";
+    display+= " "+icons[grid[2][0]]+" | "+icons[grid[2][1]]+" | "+icons[grid[2][2]]+" | "+icons[grid[2][3]]+" \r\n";
+    display+= "___|___|___|___\r\n";
+    display+= "z  |x  |c  |v  \r\n";
+    display+= " "+icons[grid[3][0]]+" | "+icons[grid[3][1]]+" | "+icons[grid[3][2]]+" | "+icons[grid[3][3]]+" \r\n";
+    display+= "   |   |   |\r\n";
     display+= "____________________________\r\n";
     if(gameover){
       display+="Return to menu in 5 seconds.";
@@ -60,65 +63,114 @@ class OandX extends Game {
   public void input(){
     char input = scanner.next().charAt(0);
     switch (input){
-      case 'a':
+      case '1':
         if(grid[0][0]==0){
           grid[0][0]=player;
           player = 3 - player;
           turn ++;
         }
         break;
-      case 'b':
+      case '2':
         if(grid[0][1]==0){
           grid[0][1]=player;
           player = 3 - player;
           turn ++;
         }
         break;
-      case 'c':
+      case '3':
         if(grid[0][2]==0){
           grid[0][2]=player;
           player = 3 - player;
           turn ++;
         }
         break;
-      case 'd':
+      case '4':
+        if(grid[0][3]==0){
+          grid[0][3]=player;
+          player = 3 - player;
+          turn ++;
+        }
+        break;
+      case 'q':
         if(grid[1][0]==0){
           grid[1][0]=player;
           player = 3 - player;
           turn ++;
         }
         break;
-      case 'e':
+      case 'w':
         if(grid[1][1]==0){
           grid[1][1]=player;
           player = 3 - player;
           turn ++;
         }
         break;
-      case 'f':
+      case 'e':
         if(grid[1][2]==0){
           grid[1][2]=player;
           player = 3 - player;
           turn ++;
         }
         break;
-      case 'g':
+      case 'r':
+        if(grid[1][3]==0){
+          grid[1][3]=player;
+          player = 3 - player;
+          turn ++;
+        }
+        break;
+      case 'a':
         if(grid[2][0]==0){
           grid[2][0]=player;
           player = 3 - player;
           turn ++;
         }
         break;
-      case 'h':
+      case 's':
         if(grid[2][1]==0){
           grid[2][1]=player;
           player = 3 - player;
           turn ++;
         }
         break;
-      case 'i':
+      case 'd':
         if(grid[2][2]==0){
           grid[2][2]=player;
+          player = 3 - player;
+          turn ++;
+        }
+        break;
+      case 'f':
+        if(grid[2][3]==0){
+          grid[2][3]=player;
+          player = 3 - player;
+          turn ++;
+        }
+        break;
+      case 'z':
+        if(grid[3][0]==0){
+          grid[3][0]=player;
+          player = 3 - player;
+          turn ++;
+        }
+        break;
+      case 'x':
+        if(grid[3][1]==0){
+          grid[3][1]=player;
+          player = 3 - player;
+          turn ++;
+        }
+        break;
+      case 'c':
+        if(grid[3][2]==0){
+          grid[3][2]=player;
+          player = 3 - player;
+          turn ++;
+        }
+        break;
+      case 'v':
+        if(grid[3][3]==0){
+          grid[3][3]=player;
           player = 3 - player;
           turn ++;
         }
@@ -129,15 +181,17 @@ class OandX extends Game {
   }
 
   public void update(){
-    if(grid[0][0]==grid[0][1] && grid[0][0]==grid[0][2] && grid[0][0]!=0){gameover = true;winner=grid[0][0];}
-    if(grid[1][0]==grid[1][1] && grid[1][0]==grid[1][2] && grid[1][0]!=0){gameover = true;winner=grid[1][0];}
-    if(grid[2][0]==grid[2][1] && grid[2][0]==grid[2][2] && grid[2][0]!=0){gameover = true;winner=grid[2][0];}
-    if(grid[0][0]==grid[1][0] && grid[0][0]==grid[2][0] && grid[0][0]!=0){gameover = true;winner=grid[0][0];}
-    if(grid[0][1]==grid[1][1] && grid[0][1]==grid[2][1] && grid[0][1]!=0){gameover = true;winner=grid[0][1];}
-    if(grid[0][2]==grid[1][2] && grid[0][2]==grid[2][2] && grid[0][2]!=0){gameover = true;winner=grid[0][2];}
-    if(grid[0][0]==grid[1][1] && grid[0][0]==grid[2][2] && grid[0][0]!=0){gameover = true;winner=grid[0][0];}
-    if(grid[0][2]==grid[1][1] && grid[1][1]==grid[2][0] && grid[0][2]!=0){gameover = true;winner=grid[0][2];}
-    if(turn==10){gameover = true;winner=0;}
+    if(grid[0][0]==grid[0][1] && grid[0][0]==grid[0][2] && grid[0][0]==grid[0][3] && grid[0][0]!=0){gameover = true;winner=grid[0][0];}
+    if(grid[1][0]==grid[1][1] && grid[1][0]==grid[1][2] && grid[1][0]==grid[1][3] && grid[1][0]!=0){gameover = true;winner=grid[1][0];}
+    if(grid[2][0]==grid[2][1] && grid[2][0]==grid[2][2] && grid[2][0]==grid[2][3] && grid[2][0]!=0){gameover = true;winner=grid[2][0];}
+    if(grid[3][0]==grid[3][1] && grid[3][0]==grid[3][2] && grid[3][0]==grid[3][3] && grid[3][0]!=0){gameover = true;winner=grid[3][0];}
+    if(grid[0][0]==grid[1][0] && grid[0][0]==grid[2][0] && grid[0][0]==grid[3][0] && grid[0][0]!=0){gameover = true;winner=grid[0][0];}
+    if(grid[0][1]==grid[1][1] && grid[0][1]==grid[2][1] && grid[0][1]==grid[3][1] && grid[0][1]!=0){gameover = true;winner=grid[0][1];}
+    if(grid[0][2]==grid[1][2] && grid[0][2]==grid[2][2] && grid[0][2]==grid[3][2] && grid[0][2]!=0){gameover = true;winner=grid[0][2];}
+    if(grid[0][3]==grid[1][3] && grid[0][3]==grid[2][3] && grid[0][3]==grid[3][3] && grid[0][3]!=0){gameover = true;winner=grid[0][3];}
+    if(grid[0][0]==grid[1][1] && grid[0][0]==grid[2][2] && grid[0][0]==grid[3][3] && grid[0][0]!=0){gameover = true;winner=grid[0][0];}
+    if(grid[0][3]==grid[1][2] && grid[0][3]==grid[2][1] && grid[0][3]==grid[3][0] && grid[0][3]!=0){gameover = true;winner=grid[0][3];}
+    if(turn==17){gameover = true;winner=0;}
   }
 
   public void endgame(){
