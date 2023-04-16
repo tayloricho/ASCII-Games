@@ -100,7 +100,23 @@ class ConnectFour extends Game {
   }
 
   public void update() {
-    // check if a player has won
+    // check horizontal win
+    for (int player = 1; player <= 2; player++) {
+      for (int i = 0; i < 6; i++) {
+        int count = 0;
+        for (int j = 0; j < 5; j++) {
+          if (grid[i][j] == player) {
+            count += 1;
+          }else {
+            count = 0;
+          }
+        }
+        if (count == 4) {
+          gameover = true;
+          winner = player;
+        }
+      }
+    }
   }
 
   public void endgame() {
