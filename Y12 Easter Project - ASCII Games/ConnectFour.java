@@ -100,20 +100,39 @@ class ConnectFour extends Game {
   }
 
   public void update() {
-    // check horizontal win
-    for (int player = 1; player <= 2; player++) {
+    // check vertical win
+    for (int p = 1; p <= 2; p++) {
       for (int i = 0; i < 6; i++) {
-        int count = 0;
-        for (int j = 0; j < 5; j++) {
-          if (grid[i][j] == player) {
-            count += 1;
-          }else {
-            count = 0;
+        int countV = 0;
+        for (int j = 0; j < 7; j++) {
+          if (grid[i][j] == p) {
+            countV += 1;
+          } else {
+            countV = 0;
           }
+          if (countV == 4) {
+            gameover = true;
+            winner = 3 - player;
+          }
+          // System.out.println("Player:" +p+", CountV: "+countV+", i: "+i+", j: "+j+", Grid: "+grid[i][j]);
         }
-        if (count == 4) {
-          gameover = true;
-          winner = player;
+      }
+    }
+    // check horizontal win
+    for (int p = 1; p <= 2; p++) {
+      for (int j = 0; j < 7; j++) {
+        int countH = 0;
+        for (int i = 0; i < 6; i++) {
+          if (grid[i][j] == p) {
+            countH += 1;
+          } else {
+            countH = 0;
+          }
+          if (countH == 4) {
+            gameover = true;
+            winner = 3 - player;
+          }
+          // System.out.println("Player:" +p+", CountH: "+countH+", i: "+i+", j: "+j+", Grid: "+grid[i][j]);
         }
       }
     }
